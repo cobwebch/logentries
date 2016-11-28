@@ -22,14 +22,16 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * This class can be called from anywhere within any TYPO3 extension.
  * @package Cobweb\LogEntries\Classes
  */
-class Logger {
+class Logger
+{
     /**
      * Sends an emergency log to logentries
      * @param string $process Process related to this log
      * @param string $message
      * @return string
      */
-    static public function emergency($process, $message) {
+    static public function emergency($process, $message)
+    {
         /** @var \TYPO3\CMS\Core\Log\Logger $logger */
         $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
         // Write to Log
@@ -43,7 +45,8 @@ class Logger {
      * @param string $message
      * @return string
      */
-    static public function critical($process, $message) {
+    static public function critical($process, $message)
+    {
         /** @var \TYPO3\CMS\Core\Log\Logger $logger */
         $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
         // Write to Log
@@ -56,7 +59,8 @@ class Logger {
      * @param string $message
      * @return string
      */
-    static public function alert($process, $message) {
+    static public function alert($process, $message)
+    {
         /** @var \TYPO3\CMS\Core\Log\Logger $logger */
         $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
         // Write to Log
@@ -69,7 +73,8 @@ class Logger {
      * @param string $message
      * @return string
      */
-    static public function error($process, $message) {
+    static public function error($process, $message)
+    {
         /** @var \TYPO3\CMS\Core\Log\Logger $logger */
         $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
         // Write to Log
@@ -82,7 +87,8 @@ class Logger {
      * @param string $message
      * @return string
      */
-    static public function warning($process, $message) {
+    static public function warning($process, $message)
+    {
         /** @var \TYPO3\CMS\Core\Log\Logger $logger */
         $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
         // Write to Log
@@ -95,7 +101,8 @@ class Logger {
      * @param string $message
      * @return string
      */
-    static public function notice($process, $message) {
+    static public function notice($process, $message)
+    {
         /** @var \TYPO3\CMS\Core\Log\Logger $logger */
         $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
         // Write to Log
@@ -108,7 +115,8 @@ class Logger {
      * @param string $message
      * @return string
      */
-    static public function info($process, $message) {
+    static public function info($process, $message)
+    {
         /** @var \TYPO3\CMS\Core\Log\Logger $logger */
         $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
         // Write to Log
@@ -121,7 +129,8 @@ class Logger {
      * @param string $message
      * @return string
      */
-    static public function debug($process, $message) {
+    static public function debug($process, $message)
+    {
         /** @var \TYPO3\CMS\Core\Log\Logger $logger */
         $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
         // Write to Log

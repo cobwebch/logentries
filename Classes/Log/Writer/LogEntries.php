@@ -21,14 +21,16 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * Sends log messages to Logentries.com
  */
-class LogEntries extends \TYPO3\CMS\Core\Log\Writer\AbstractWriter {
+class LogEntries extends \TYPO3\CMS\Core\Log\Writer\AbstractWriter
+{
     /**
      * Writes the log record to Logentries.
      *
      * @param LogRecord $record Log record
      * @return LogRecord
      */
-    public function writeLog(LogRecord $record) {
+    public function writeLog(LogRecord $record)
+    {
         $hostName = GeneralUtility::getHostname();
         if (strpos($hostName, '.cobweb.blue') !== false) {
             $context = 'STAGING';
