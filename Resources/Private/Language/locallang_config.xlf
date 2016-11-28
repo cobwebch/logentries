@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-12-30T11:08:32Z" product-name="logentries">
+		<header/>
+		<body>
+			<trans-unit id="logentries_token">
+				<source>LogEntries token for this website: Log in to logentries.com and create/edit a host to find its logentires token.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

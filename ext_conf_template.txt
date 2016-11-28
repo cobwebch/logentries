@@ -1,0 +1,2 @@
+# cat=basic//a; type=string; label=LLL:EXT:logentries/Resources/Private/Language/locallang_config.xlf:logentries_token
+logentriesToken =
