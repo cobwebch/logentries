@@ -1,0 +1,24 @@
+{
+	"name": "cobweb/logentries",
+	"type": "typo3-cms-extension",
+	"description": "Provides a logger that sends data to LogEntries.com.",
+	"license": [
+		"GPL-2.0+"
+	],
+	"authors": [
+		{
+			"name": "Julien Henchoz",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Cobweb\\LogEntries\\": "Classes/"
+		}
+	},
+	"version": "1.2.0",
+	"require": {
+		"typo3/cms-core": "^9.5",
+		"cbschuld/logentries": "^1.0"
+	}
+}
