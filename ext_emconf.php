@@ -10,33 +10,31 @@
  * "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array(
-	'title' => 'LogEntries logger',
-	'description' => 'Provides a logger that sends data to LogEntries.com',
-	'category' => 'services',
-	'author' => 'Julien Henchoz',
-	'author_email' => 'typo3@cobweb.ch',
-	'author_company' => 'Cobweb Development SARL',
-	'shy' => '',
-	'priority' => '',
-	'module' => '',
-	'state' => 'stable',
-	'internal' => '',
-	'uploadfolder' => '0',
-	'createDirs' => '',
-	'modify_tables' => '',
-	'clearCacheOnLoad' => 0,
-	'lockType' => '',
-	'version' => '1.1.0',
-	'constraints' => array(
-		'depends' => array(
-			'typo3' => '7.6.0-7.6.99',
-		),
-		'conflicts' => array(
-		),
-		'suggests' => array(
-		),
-	),
-);
-
-?>
+$EM_CONF[$_EXTKEY] = [
+        'title' => 'LogEntries logger',
+        'description' => 'Provides a logger that sends data to LogEntries.com',
+        'category' => 'services',
+        'author' => 'Julien Henchoz',
+        'author_email' => 'typo3@ideative.ch',
+        'author_company' => 'Idéative',
+        'shy' => '',
+        'priority' => '',
+        'module' => '',
+        'state' => 'stable',
+        'internal' => '',
+        'uploadfolder' => '0',
+        'createDirs' => '',
+        'modify_tables' => '',
+        'clearCacheOnLoad' => 0,
+        'lockType' => '',
+        'version' => '1.1.0',
+        'constraints' => [
+                'depends' => [
+                        'typo3' => '8.7.0-8.7.99',
+                ],
+                'conflicts' => [
+                ],
+                'suggests' => [
+                ],
+        ],
+];

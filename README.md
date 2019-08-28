@@ -6,14 +6,13 @@ makes it possible to use it with the TYPO3 logging framework.
 Example:
 
 ```
-$GLOBALS['TYPO3_CONF_VARS']['LOG']['Cobweb']['LogEntries']['Log']['Logger'] = array(
-    'writerConfiguration' => array(
-        \TYPO3\CMS\Core\Log\LogLevel::DEBUG => array(
-            'Cobweb\\LogEntries\\Log\\Writer\\LogEntries' => array(
-            )
-        ),
-    )
-);
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['Cobweb']['LogEntries']['Log']['Logger'] = [
+    'writerConfiguration' => [
+        \TYPO3\CMS\Core\Log\LogLevel::DEBUG => [
+            'Cobweb\\LogEntries\\Log\\Writer\\LogEntries' => []
+        ],
+    ]
+];
 ```
 The extension also provides some static methods for quickly writing to
 Logentries:
