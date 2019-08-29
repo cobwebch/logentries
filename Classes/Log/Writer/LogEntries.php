@@ -26,35 +26,59 @@ namespace Cobweb\LogEntries\Log\Writer;
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Log\LogRecord;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Log\Writer\AbstractWriter;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Sends log messages to Logentries.com
  *
  */
-class LogEntries extends \TYPO3\CMS\Core\Log\Writer\AbstractWriter
+class LogEntries extends AbstractWriter
 {
+    /**
+     * @var string LogEntries token
+     */
+    protected $token = '';
+
+    public function __construct(array $options = [])
+    {
+        parent::__construct($options);
+        $this->token = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get(
+                'logentries',
+                'logentriesToken'
+        );
+
+    }
+
     /**
      * Writes the log record to Logentries.
      *
      * @param LogRecord $record Log record
      * @return LogRecord
      */
-    public function writeLog(LogRecord $record)
+    public function writeLog(LogRecord $record): LogRecord
     {
-        $hostName = GeneralUtility::getHostname();
-        if (strpos($hostName, '.cobweb.blue') !== false) {
-            $context = 'STAGING';
-        } elseif (strpos($hostName, '.cobweb.dev') !== false) {
-            $context = 'DEV';
+        $contextObject = GeneralUtility::getApplicationContext();
+        if ($contextObject->isDevelopment()) {
+            $fullContext = (string)$contextObject;
+            if (strpos($fullContext, 'DDEV') !== false) {
+                $context = 'DEV';
+            } else {
+                $context = 'STAGING';
+            }
+        } elseif ($contextObject->isTesting()) {
+            $context = 'TEST';
         } else {
             $context = 'PROD';
         }
 
-        $log = include ExtensionManagementUtility::extPath('logentries') . 'Lib/LeLogger/logentries.php';
-        $log->log($context . ' - ' . $record->getMessage(), $record->getLevel());
+        $log = \cbschuld\LogEntries::getLogger($this->token,true,true);
+        $message = $context . ' - ' . $record->getMessage();
+        if ($message) {
+            $log->log($record->getLevel(), $context . ' - ' . $record->getMessage());
+        }
         return $record;
     }
 }

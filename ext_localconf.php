@@ -1,8 +1,5 @@
 <?php
 
-require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('logentries') . '/Classes/Log/Logger.php');
-require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('logentries') . '/Classes/Log/Writer/LogEntries.php');
-
 /**
  * Define which logWriter to use for our logging class
  */
